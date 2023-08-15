@@ -5,7 +5,7 @@ instructors = [
     { 'firstName': "Muhammad", 'lastName': "Sannan"  }
 ]
 students = [
-    { 'id': "1", 'firstName': "Alaric", 'lastName': "Mbooh"  },
+    { 'id': "1", 'firstName': "test", 'lastName': "Mbooh"  },
     { 'id': "2",'firstName': "Jose", 'lastName': "Ugorji"  }
 ]
 
