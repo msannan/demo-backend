@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  labels:
+    name: backend-dep-label
+  annotations:
+    class: backend-k8s
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      tier: backend
+      app: K8s-project
+  template:
+    metadata:
+      labels:
+        tier: backend
+        app: K8s-project
+    spec:
+      containers:
+      - name: backend
+        image: 270962712979.dkr.ecr.us-east-1.amazonaws.com/backend:latest
+        ports:
+        - containerPort: 8080
+          name: tcp
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+  labels:
+    name: backend-svc
+spec:
+  type: ClusterIP
+  selector:
+      tier: backend
+      app: K8s-project
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: 8080
